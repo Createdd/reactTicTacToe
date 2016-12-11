@@ -1,6 +1,8 @@
 /* jshint node: true */
 /*jshint esversion: 6 */
-/*jshint esnext: true */class Square extends React.Component {
+/*jshint esnext: true */
+
+class Square extends React.Component {
   render() {
     return (
       <button className="square">
@@ -78,6 +80,6 @@ function calculateWinner(squares) {
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
       return squares[a];
     }
-  } 
+  }
   return null;
 }
