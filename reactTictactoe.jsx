@@ -17,8 +17,10 @@ class Board extends React.Component {
   handleClick(i) {
     const squares = this.state.squares.slice();
     squares[i] = this.state.xIsNext ? 'K' : 'D';
+    let next = squares[i] === 'D' ? 'K' : 'D';
     this.setState({
       squares: squares,
+      next : next,
       xIsNext: !this.state.xIsNext
     });
 
@@ -32,7 +34,7 @@ class Board extends React.Component {
     );
   }
   render() {
-    const status = 'Next player: X';
+    const status = 'Next player: ' + this.state.next;
     return (
       <div>
         <div className="status">{status}</div>
