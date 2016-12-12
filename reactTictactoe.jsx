@@ -1,20 +1,38 @@
-/* jshint node: true */
-/*jshint esversion: 6 */
-/*jshint esnext: true */
-
 class Square extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      value: null,
+    };
+  }
   render() {
     return (
-      <button className="square">
-        {this.props.value}
+      <button className="square" onClick={ () => this.props.OnClick()}>
+        {this.state.value}
       </button>
     );
   }
 }
 
 class Board extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      squares: Array(9).fill(null),
+    };
+  }
+  handleClick(){
+    const squares = this.state.squares.slice();
+    squares[i] = 'X';
+    this.setState({squares: squares});
+  }
   renderSquare(i) {
-    return <Square value={i}/>;
+    return (
+      <Square
+        value={this.state.squares[i]}
+        onClick = { () => this.handleClick(i)}
+      />;
+    )
   }
   render() {
     const status = 'Next player: X';
